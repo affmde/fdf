@@ -15,9 +15,10 @@ LIBOBJ = $(LIBFTSRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(SRCSDEST) $(LIBFT)
-	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. libft.a  \
-	 && make clean && ./fdf test_maps/42.fdf
-
+	# cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. libft.a  \
+	# && make clean && ./fdf test_maps/42.fdf
+	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -lmlx -lXext -lX11 -L. libft.a -lm  \
+         && make clean && ./fdf test_maps/42.fdf
 clean:
 	rm -f *.o $(LIBOBJ)
 

@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:51:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/02 13:59:12 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/03 09:14:21 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ typedef struct s_fdf
 	void	*ptr;
 	void	*win;
 	int		error_code;
-	t_map	map;
-	t_cam	cam;
+	t_map	*map;
+	t_cam	*cam;
 }				t_fdf;
 
 #endif

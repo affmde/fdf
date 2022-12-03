@@ -15,9 +15,9 @@
 
 int	handle_img(t_fdf *fdf, t_img *image)
 {
-	image->img_ptr = mlx_new_image(fdf->ptr, 500, 500);
+	image->img_ptr = mlx_new_image(fdf->ptr, WIDTH, HEIGHT);
 	image->data = (int *)mlx_get_data_addr(image->img_ptr, &image->bpp, &image->size_l, &image->endian);
 	draw(fdf, image);
-	//mlx_put_image_to_window(map->ptr, map->win, image->img_ptr, 250, 250);
+	mlx_put_image_to_window(fdf->ptr, fdf->win, image->img_ptr, 0, 0);
 	return (1);
 }
