@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 10:13:58 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/03 14:45:48 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:03:43 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	draw(t_fdf *fdf, t_img *image)
 			{
 				pos_0 = populate_position(j, i, fdf->map->grid[i][j]);
 				pos_1 = populate_position(j + 1, i, fdf->map->grid[i][j + 1]);
-				bresenham_algo(transform(pos_0, fdf), transform(pos_1, fdf), image);
+				bresenham_algo(transform(pos_0, fdf), transform(pos_1, fdf), image, fdf);
 			}
 			if (i < fdf->map->height - 1)
 			{
 				pos_0 = populate_position(j, i, fdf->map->grid[i][j]);
 				pos_1 = populate_position(j, i + 1, fdf->map->grid[i + 1][j]);
-				bresenham_algo(transform(pos_0, fdf), transform(pos_1, fdf), image);
+				bresenham_algo(transform(pos_0, fdf), transform(pos_1, fdf), image, fdf);
 			}
 			j++;
 		}

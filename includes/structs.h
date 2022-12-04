@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:51:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 10:18:47 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:57:58 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_cam
 	int	offset_x;
 	int	offset_y;
 	int	depth;
+	int	color;
 
 }			t_cam;
 

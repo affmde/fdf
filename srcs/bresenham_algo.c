@@ -6,19 +6,19 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 16:10:28 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/03 15:17:25 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:05:21 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
-static void	set_color(t_pos *pos0, t_pos *pos1)
+static void	set_color(t_pos *pos0, t_pos *pos1, t_fdf *fdf)
 {
 	if(pos0->z || pos1->z)
 	{
-		pos0->color = 0xFF0000;
-		pos1->color = 0Xffffff;
+		pos0->color = color(fdf, pos0->z);
+		pos1->color = color(fdf, pos1->z);
 	}
 }
 
@@ -38,12 +38,12 @@ static void line_params(t_pos pos_0, t_pos pos_1, t_params *params)
 	params->error = 0;
 }
 
-void	bresenham_algo(t_pos pos_0, t_pos pos_1, t_img *image)
+void	bresenham_algo(t_pos pos_0, t_pos pos_1, t_img *image, t_fdf *fdf)
 {
 	t_params	params;
 
 	line_params(pos_0, pos_1, &params);
-	set_color(&pos_0, &pos_1);
+	set_color(&pos_0, &pos_1, fdf);
 	while (pos_0.y != pos_1.y || pos_0.x != pos_1.x)
 	{
 		my_put_pixel(image, pos_0.x, pos_0.y, pos_0.color);

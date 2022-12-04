@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:16:59 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 18:46:17 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:06:20 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	free_map(int **map);
 int		handle_window(t_fdf *fdf);
 t_map		*handle_file(int argv, char **argc);
 int		handle_img(t_fdf *fdf, t_img *image);
-void	bresenham_algo(t_pos pos_0, t_pos pos_1, t_img *image);
+void	bresenham_algo(t_pos pos_0, t_pos pos_1, t_img *image, t_fdf *fdf);
 t_pos	transform(t_pos pos, t_fdf *fdf);
 int 	setup(t_fdf *fdf);
 void	my_put_pixel(t_img *image, int x, int y, int color);
@@ -43,5 +43,5 @@ char	*get_map_str_helper(char *old, char *new);
 void	set_z(t_map *map, int val);
 int	    map_length(char **map);
 void    free_char_map(char **char_map);
-
+int     color(t_fdf *fdf, int z);
 #endif

@@ -1,7 +1,7 @@
 NAME = fdf
 FLAGS = -Wall -Werror -Wextra
 SRCS = generate_map_array.c draw.c events.c isometric.c free_map.c window.c handle_file.c bresenham_algo.c handle_img.c \
-transform.c setup.c graphics_utils.c handle_errors.c parsing_utils.c
+transform.c setup.c graphics_utils.c handle_errors.c parsing_utils.c colors.c
 SRCSDEST = $(addprefix ./srcs/, $(SRCS))
 OBJ = $(SRCS:.c=.o)
 INC = -I /includes/fdf.h /includes/strucs.h
