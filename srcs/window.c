@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:06:52 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/03 18:30:41 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/04 10:46:43 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ int	handle_window(t_fdf *fdf)
 	mlx_hook(fdf->win, 2, 0, deal_key, &fdf);
 	mlx_hook(fdf->win, 17, 0, close_window, &fdf);
 	handle_img(fdf, image);
-	mlx_loop(fdf->ptr);
 	free(image);
+	free(fdf->cam);
+	mlx_loop(fdf->ptr);
+	//free_map(fdf->map->grid);
+	//free(fdf->ptr);
+	//free(fdf->win);
 	return (1);
 }

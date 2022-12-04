@@ -6,24 +6,14 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:50:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/03 17:25:19 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:47:53 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
-char	*get_map_str_helper(char *old, char *new)
-{
-	char *tmp;
-
-	tmp = ft_strjoin(old, new);
-	free(old);
-	free(new);
-	return (tmp);
-}
-
-char	*get_map_str(int fd)
+static char	*get_map_str(int fd)
 {
 	char	*map;
 	char	*str;
@@ -36,53 +26,64 @@ char	*get_map_str(int fd)
 	return (map);
 }
 
+static void	fill_array(int *i, char **line, int **grid, t_map *map)
+{
+	int		j;
+	char	*val;
+	
+	j = 0;
+	while (line[j])
+	{
+		val = line[j];
+		grid[*i][j] = ft_atoi(val);
+		set_z(map, grid[*i][j]);
+		free(line[j]);
+		j++;
+	}
+}
+
 int	**int_map(char **char_map, t_map *map)
 {
 	int	**grid;
 	int	i;
-	int	j;
-	int k;
-
-	i = 0;
-	while(char_map[i])
-		i++;
-	if(!(grid = (int **)malloc(sizeof(int *) * i)))
+	char	**line;
+	
+	map->max_z = 0;
+	map->min_z = 0;
+	map->height = map_length(char_map);
+	if (!(grid = (int**)malloc(sizeof(int *) * map->height)))
 		return (NULL);
 	i = 0;
-	while(char_map[i])
+	while (char_map[i])
 	{
-		if (!(grid[i] = (int *)malloc(sizeof(int) * ft_strlen(char_map[i]))))
+		line = ft_split(char_map[i], ' ');
+		map->width = map_length(line);
+		if (!(grid[i] = (int *)malloc(sizeof(int) * map->width)))
 			return (NULL);
-		j = 0;
-		k = 0;
-		while(char_map[i][k] != '\0')
-		{
-			if(ft_isdigit(char_map[i][k]) || char_map[i][k] == '-' || char_map[i][k] == '+')
-			{
-				grid[i][j] = ft_atoi(&char_map[i][k]);
-				if(grid[i][j])
-					k++;
-				j++;
-			}
-			k++;
-		}
-		free(char_map[i]);
-		map->width = j;
+		fill_array(&i, line, grid, map);
+		free(line);
 		i++;
 	}
-	map->height = i;
 	return (grid);
 }
 
-int	get_map(int fd, t_map *map)
+t_map	*get_map(int fd)
 {
 	char	*map_str;
 	char	**char_map;
+	t_map	*map;
+	
 	if(!(map_str = get_map_str(fd)))
 		return (0);
 	char_map = ft_split(map_str, '\n');
+	if (!(map = (t_map *)malloc(sizeof(t_map))))
+	{
+		free(map_str);
+		free_char_map(char_map);
+		return (0);
+	}
 	map->grid = int_map(char_map, map);
-	free(char_map);
+	free_char_map(char_map);
 	free(map_str);
-	return (1);
+	return (map);
 }

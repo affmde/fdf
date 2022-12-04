@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:51:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/03 09:14:21 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/04 10:18:47 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ typedef struct s_cam
 
 typedef struct s_map
 {
-	int		**grid;
-	int		height;
-	int		width;
-	int		color;
-
+	int	**grid;
+	int	height;
+	int	width;
+	int	max_z;
+	int	min_z;
 }			t_map;
 
 typedef struct	s_img
