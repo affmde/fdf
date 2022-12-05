@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:50:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 18:47:53 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 08:59:33 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	fill_array(int *i, char **line, int **grid, t_map *map)
 		free(line[j]);
 		j++;
 	}
+	free(line);
 }
 
 int	**int_map(char **char_map, t_map *map)
@@ -61,7 +62,6 @@ int	**int_map(char **char_map, t_map *map)
 		if (!(grid[i] = (int *)malloc(sizeof(int) * map->width)))
 			return (NULL);
 		fill_array(&i, line, grid, map);
-		free(line);
 		i++;
 	}
 	return (grid);

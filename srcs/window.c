@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:06:52 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 10:46:43 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 09:26:19 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,23 @@ int	handle_window(t_fdf *fdf)
 
 	if (!(image = (t_img *)malloc(sizeof(t_img))))
 		return (0);
-	fdf->ptr = mlx_init();
-	fdf->win = mlx_new_window(fdf->ptr, WIDTH, HEIGHT, "My New Window");
+	if(!(fdf->ptr = mlx_init()))
+	{
+		free(image);
+		return (0);
+	}
+	if (!(fdf->win = mlx_new_window(fdf->ptr, WIDTH, HEIGHT, "My New Window")))
+	{
+		free(image);
+		free(fdf->ptr);
+		return (0);
+	}
 	mlx_hook(fdf->win, 2, 0, deal_key, &fdf);
 	mlx_hook(fdf->win, 17, 0, close_window, &fdf);
 	handle_img(fdf, image);
-	free(image);
-	free(fdf->cam);
 	mlx_loop(fdf->ptr);
-	//free_map(fdf->map->grid);
-	//free(fdf->ptr);
-	//free(fdf->win);
+	mlx_destroy_display(fdf->ptr);
+	free(fdf->win);
+	free(image);
 	return (1);
 }

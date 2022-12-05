@@ -6,19 +6,19 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:25 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/03 20:33:13 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 09:20:55 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
-void	free_map(int **map)
+void	free_map(int **map, int heigth)
 {
 	int	i;
 	
 	i = 0;
-	while (map[i])
+	while (i < heigth)
 	{
 		free(map[i]);
 		i++;

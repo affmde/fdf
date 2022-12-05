@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:16:59 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 19:06:20 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 09:22:36 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	draw(t_fdf *fdf, t_img *image);
 int		deal_key(int keycode, t_fdf *fdf);
 int		close_window(t_fdf *fdf);
 int		isometric(t_pos *pos);
-void	free_map(int **map);
 int		handle_window(t_fdf *fdf);
 t_map		*handle_file(int argv, char **argc);
 int		handle_img(t_fdf *fdf, t_img *image);
@@ -44,4 +43,5 @@ void	set_z(t_map *map, int val);
 int	    map_length(char **map);
 void    free_char_map(char **char_map);
 int     color(t_fdf *fdf, int z);
+void	free_map(int **map, int heigth);
 #endif

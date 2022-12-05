@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:08:40 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 18:19:13 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 09:24:58 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ int	main(int argv, char **argc)
 	fdf->map = map;
 	if(!setup(fdf))
 		error_malloc("Something happened on steup.");
-	//free_map(fdf->map->grid);
 	if(!handle_window(fdf))
 		error_malloc("Could not manage the window.");
+	free(fdf->cam);
+	free_map(map->grid, fdf->map->height);
+	free(map);
+	free(fdf->ptr);
+	free(fdf);
 	return (0);
 }
