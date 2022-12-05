@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:51:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 13:46:15 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:23:39 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_cam
 	int	offset_y;
 	int	depth;
 	int	color;
-
+	int	z_transform;
 }			t_cam;
 
 typedef struct s_map
@@ -66,6 +66,7 @@ typedef struct s_fdf
 	int		error_code;
 	t_map	*map;
 	t_cam	*cam;
+	t_img	*image;
 }				t_fdf;
 
 #endif

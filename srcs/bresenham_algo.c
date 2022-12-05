@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 16:10:28 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 13:37:07 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:33:21 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,24 @@ static void	set_color(t_pos *pos0, t_pos *pos1)
 {
 	if (pos0->z || pos1->z)
 	{
-		pos0->color = 0xFF0000;
-		pos1->color = 0xFF0000;
+		if (pos0->z == pos1->z)
+		{
+			if (pos0->z > 0)
+			{
+				pos0->color = 0xFF0000;
+				pos1->color = 0xFF0000;
+			}
+			else
+			{
+				pos0->color = 0x00FFFF;
+				pos1->color = 0x00FFFF;
+			}
+		}
+		else if (pos0->z != pos1->z)
+		{
+			pos0->color = 0xffff00;
+			pos1->color = 0xffff00;
+		}
 	}
 }
 

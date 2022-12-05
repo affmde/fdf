@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:50:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 13:22:07 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:23:33 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,7 @@ static char	*get_map_str(int fd)
 	map = ft_calloc(1, sizeof(char));
 	if (!map)
 		return (NULL);
-	str = (char *)malloc(1);
-	if (!str)
-	{
-		free (map);
-		return (NULL);
-	}
+	str = NULL;
 	while (1)
 	{
 		str = get_next_line(fd);

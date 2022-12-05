@@ -6,19 +6,25 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:49:37 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 12:59:02 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:10:03 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
-int	handle_img(t_fdf *fdf, t_img *image)
+int	handle_img(t_fdf *fdf)
 {
-	image->img_ptr = mlx_new_image(fdf->ptr, WIDTH, HEIGHT);
-	image->data = (int *)mlx_get_data_addr(image->img_ptr,
-			&image->bpp, &image->size_l, &image->endian);
-	draw(fdf, image);
-	mlx_put_image_to_window(fdf->ptr, fdf->win, image->img_ptr, 0, 0);
+	t_img	*image;
+
+	image = (t_img *)malloc(sizeof(t_img));
+	fdf->image = image;
+	if (!image)
+		return (0);
+	fdf->image->img_ptr = mlx_new_image(fdf->ptr, WIDTH, HEIGHT);
+	fdf->image->data = (int *)mlx_get_data_addr(fdf->image->img_ptr,
+			&fdf->image->bpp, &fdf->image->size_l, &fdf->image->endian);
+	draw(fdf, fdf->image);
+	mlx_put_image_to_window(fdf->ptr, fdf->win, fdf->image->img_ptr, 0, 0);
 	return (1);
 }

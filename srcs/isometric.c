@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:44:19 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 12:58:26 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:32:11 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	isometric(t_pos *pos)
 
 	old = *pos;
 	pos->x = (old.x - old.y) * 0.87;
-	pos->y = (-old.z + (old.x + old.y)) * 0.50;
+	pos->y = (-old.z + (old.x + old.y)) * 0.523599;
 	return (1);
 }
