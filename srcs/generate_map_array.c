@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:50:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 08:59:33 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:22:07 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,19 @@ static char	*get_map_str(int fd)
 	map = ft_calloc(1, sizeof(char));
 	if (!map)
 		return (NULL);
-	while((str = get_next_line(fd)))
+	str = (char *)malloc(1);
+	if (!str)
+	{
+		free (map);
+		return (NULL);
+	}
+	while (1)
+	{
+		str = get_next_line(fd);
+		if (!str)
+			break ;
 		map = get_map_str_helper(map, str);
+	}
 	return (map);
 }
 
@@ -30,7 +41,7 @@ static void	fill_array(int *i, char **line, int **grid, t_map *map)
 {
 	int		j;
 	char	*val;
-	
+
 	j = 0;
 	while (line[j])
 	{
@@ -45,21 +56,23 @@ static void	fill_array(int *i, char **line, int **grid, t_map *map)
 
 int	**int_map(char **char_map, t_map *map)
 {
-	int	**grid;
-	int	i;
+	int		**grid;
+	int		i;
 	char	**line;
-	
+
 	map->max_z = 0;
 	map->min_z = 0;
 	map->height = map_length(char_map);
-	if (!(grid = (int**)malloc(sizeof(int *) * map->height)))
+	grid = (int **)malloc(sizeof(int *) * map->height);
+	if (!grid)
 		return (NULL);
 	i = 0;
 	while (char_map[i])
 	{
 		line = ft_split(char_map[i], ' ');
 		map->width = map_length(line);
-		if (!(grid[i] = (int *)malloc(sizeof(int) * map->width)))
+		grid[i] = (int *)malloc(sizeof(int) * map->width);
+		if (!grid[i])
 			return (NULL);
 		fill_array(&i, line, grid, map);
 		i++;
@@ -72,11 +85,13 @@ t_map	*get_map(int fd)
 	char	*map_str;
 	char	**char_map;
 	t_map	*map;
-	
-	if(!(map_str = get_map_str(fd)))
+
+	map_str = get_map_str(fd);
+	if (!map_str)
 		return (0);
 	char_map = ft_split(map_str, '\n');
-	if (!(map = (t_map *)malloc(sizeof(t_map))))
+	map = (t_map *)malloc(sizeof(t_map));
+	if (!map)
 	{
 		free(map_str);
 		free_char_map(char_map);
@@ -84,6 +99,6 @@ t_map	*get_map(int fd)
 	}
 	map->grid = int_map(char_map, map);
 	free_char_map(char_map);
-	free(map_str);
+	free (map_str);
 	return (map);
 }

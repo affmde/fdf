@@ -1,7 +1,7 @@
 NAME = fdf
 FLAGS = -Wall -Werror -Wextra
 SRCS = generate_map_array.c draw.c events.c isometric.c free_map.c window.c handle_file.c bresenham_algo.c handle_img.c \
-transform.c setup.c graphics_utils.c handle_errors.c parsing_utils.c colors.c
+transform.c setup.c graphics_utils.c handle_errors.c parsing_utils.c
 SRCSDEST = $(addprefix ./srcs/, $(SRCS))
 OBJ = $(SRCS:.c=.o)
 INC = -I /includes/fdf.h /includes/strucs.h
@@ -16,9 +16,8 @@ LIBOBJ = $(LIBSRCS:.c=.o)
 all: $(NAME)
 
 $(NAME):  $(LIBFT) $(SRCSDEST)
-# cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. libft.a && \
-	make clean && ./fdf test_maps/42.fdf
-	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -lmlx -lXext -lX11 -L. ./my_libft/libft.a -lm
+	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. libft.a
+#cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -lmlx -lXext -lX11 -L. ./my_libft/libft.a -lm
 clean:
 	rm -f *.o $(LIBOBJ)
 

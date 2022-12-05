@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:51:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 18:57:58 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:46:15 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_map
 	int	min_z;
 }			t_map;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void		*img_ptr;
 	int			*data;
@@ -43,18 +43,18 @@ typedef struct	s_img
 
 typedef struct s_position
 {
-	int x;
-	int y;
-	int z;
-	int color;
-} 	t_pos;
+	int	x;
+	int	y;
+	int	z;
+	int	color;
+}	t_pos;
 
 typedef struct s_line_params
 {
 	int	sx;
 	int	sy;
 	int	dx;
-	int dy;
+	int	dy;
 	int	error;
 	int	offset;
 }		t_params;

@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:55:14 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 18:21:33 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 12:56:09 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,21 @@
 static int	get_zoom(t_fdf *fdf)
 {
 	int	zoom;
-	
+
 	if (fdf->map->height < fdf->map->width)
-		zoom = HEIGHT / fdf->map->height /2;
+		zoom = HEIGHT / fdf->map->height / 2;
 	else
-		zoom = WIDTH / fdf->map->width /2;
+		zoom = WIDTH / fdf->map->width / 2;
 	zoom *= 0.75;
 	return (zoom);
 }
 
 static int	cam_setup(t_fdf *fdf)
 {
-	t_cam *cam;
-	
-	if (!(cam = (t_cam *)malloc(sizeof(t_cam))))
+	t_cam	*cam;
+
+	cam = (t_cam *)malloc(sizeof(t_cam));
+	if (!cam)
 		return (0);
 	cam->zoom = get_zoom(fdf);
 	cam->offset_x = (WIDTH - fdf->map->width * ZOOM) / 2;

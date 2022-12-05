@@ -6,15 +6,15 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:48:57 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/03 19:24:57 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:07:05 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
-void error_malloc(char *s)
+void	error_malloc(char *s)
 {
-    perror(s);
-    exit (0);
+	perror(s);
+	exit (0);
 }

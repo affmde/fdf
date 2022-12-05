@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:54:06 by andrferr          #+#    #+#             */
-/*   Updated: 2022/11/09 16:08:42 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:40:17 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putstr(char *s)
 {
-	while(*s)
-		ft_putchar(*s++);
+	write(1, &s, ft_strlen(s));
 }

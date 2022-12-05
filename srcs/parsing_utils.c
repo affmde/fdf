@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 18:23:21 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/04 18:47:10 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 12:57:22 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	*get_map_str_helper(char *old, char *new)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = ft_strjoin(old, new);
 	free(old);
@@ -41,15 +41,15 @@ int	map_length(char **map)
 	return (i);
 }
 
-void    free_char_map(char **char_map)
+void	free_char_map(char **char_map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (char_map[i])
-    {
-        free(char_map[i]);
-        i++;
-    }
-    free(char_map);
+	i = 0;
+	while (char_map[i])
+	{
+		free(char_map[i]);
+		i++;
+	}
+	free(char_map);
 }

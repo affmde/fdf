@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:25 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 09:20:55 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:23:10 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	free_map(int **map, int heigth)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < heigth)
 	{

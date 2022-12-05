@@ -6,13 +6,13 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:57:27 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/03 15:48:07 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:44:54 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_abs(int num)
+int	ft_abs(int num)
 {
-    if(num < 0)
-        return (-num);
-    return (num);
+	if (num < 0)
+		return (-num);
+	return (num);
 }
