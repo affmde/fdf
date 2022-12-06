@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:55:14 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 21:55:58 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:23:49 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	cam_setup(t_fdf *fdf)
 	cam->offset_y = (HEIGHT - fdf->map->height * ZOOM) / 2;
 	cam->depth = 15;
 	cam->z_transform = 1;
+	cam->x_translation = 0;
+	cam->y_translation = 0;
 	fdf->cam = cam;
 	return (1);
 }

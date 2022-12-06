@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:51:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 16:23:39 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:23:13 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_cam
 	int	depth;
 	int	color;
 	int	z_transform;
+	int	x_translation;
+	int	y_translation;
 }			t_cam;
 
 typedef struct s_map

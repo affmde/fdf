@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:16:59 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 21:15:30 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:31:23 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,9 @@ void	set_z(t_map *map, int val);
 int		map_length(char **map);
 void	free_char_map(char **char_map);
 void	free_map(int **map, int heigth);
-void     clean_all(t_fdf *fdf, t_map *map);
+void	clean_all(t_fdf *fdf, t_map *map);
+int		handle_rotation(int keycode, t_fdf *fdf);
+void	handle_z(int keycode, t_fdf *fdf);
+void	handle_zoom(int keycode, t_fdf *fdf);
+void	refresh_window(t_fdf *fdf);
 #endif

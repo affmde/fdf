@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:00:39 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 20:48:28 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:34:38 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,39 +19,8 @@ int	close_window(t_fdf *fdf)
 	exit(fdf->error_code);
 }
 
-static void	handle_zoom(int keycode, t_fdf *fdf)
+void	refresh_window(t_fdf *fdf)
 {
-	if (keycode == 46)
-	{
-		fdf->cam->zoom += 3;
-		if (fdf->cam->zoom > 100)
-			fdf->cam->zoom = 100;
-	}
-	else
-	{
-		fdf->cam->zoom -= 3;
-		if (fdf->cam->zoom < 0)
-			fdf->cam->zoom = 1;
-	}
-	mlx_clear_window(fdf->ptr, fdf->win);
-	mlx_destroy_image(fdf->ptr, fdf->image);
-	handle_img(fdf);
-}
-
-static void	handle_z(int keycode, t_fdf *fdf)
-{
-	if (keycode == 11)
-	{
-		fdf->cam->z_transform++;
-		if (fdf->cam->z_transform > 10)
-			fdf->cam->z_transform = 10;
-	}
-	else if (keycode == 9)
-	{
-		fdf->cam->z_transform--;
-		if (fdf->cam->z_transform < -10)
-			fdf->cam->z_transform = -10;
-	}
 	mlx_clear_window(fdf->ptr, fdf->win);
 	mlx_destroy_image(fdf->ptr, fdf->image);
 	handle_img(fdf);
@@ -68,5 +37,8 @@ int	deal_key(int keycode, t_fdf *fdf)
 		handle_zoom(keycode, fdf);
 	else if (keycode == 11 || keycode == 9)
 		handle_z(keycode, fdf);
+	else if (keycode == 124 || keycode == 123 || keycode == 125
+		|| keycode == 126)
+		handle_rotation(keycode, fdf);
 	return (0);
 }

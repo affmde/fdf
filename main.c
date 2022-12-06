@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:08:40 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 22:20:47 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 12:44:36 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	main(int argv, char **argc)
 		error_malloc("Something happened while allocating memory.");
 	map = handle_file(argv, argc);
 	if (!map)
+	{
+		free(fdf);
 		error_malloc("Something happened while handling the file.");
+	}
 	fdf->map = map;
 	if (!setup(fdf))
 		error_malloc("Something happened on steup.");

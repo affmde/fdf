@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:50:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 22:18:49 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:07:16 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ int	**int_map(char **char_map, t_map *map)
 		map->width = map_length(line);
 		grid[i] = (int *)malloc(sizeof(int) * map->width);
 		if (!grid[i])
+		{
+			free_map(grid, i);
 			return (NULL);
+		}
 		fill_array(&i, line, grid, map);
 		i++;
 	}
@@ -93,6 +96,12 @@ t_map	*get_map(int fd)
 		return (0);
 	}
 	map->grid = int_map(char_map, map);
+	if (!map->grid)
+	{
+		free_char_map(char_map);
+		free (map_str);
+		return (NULL);
+	}
 	free_char_map(char_map);
 	free (map_str);
 	return (map);

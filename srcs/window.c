@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:06:52 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 21:58:14 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 10:53:47 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	handle_window(t_fdf *fdf)
 {
-	(fdf->ptr = mlx_init());
+	fdf->ptr = mlx_init();
 	if (!fdf->ptr)
 		return (0);
 	fdf->win = mlx_new_window(fdf->ptr, WIDTH, HEIGHT, "My New Window");
