@@ -15,14 +15,15 @@ LIBSRCS = $(addprefix ./my_libft/, $(LIBFTSRCS))
 LIBOBJ = $(LIBSRCS:.c=.o)
 all: $(NAME)
 
-$(NAME):  $(LIBFT) $(SRCSDEST)
-	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. libft.a -ggdb
+$(NAME): $(SRCSDEST)
+	cd ./my_libft && make
+	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. ./my_libft/libft.a -ggdb
 #cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -lmlx -lXext -lX11 -L. ./my_libft/libft.a -lm
 clean:
 	rm -f *.o $(LIBOBJ)
 
 fclean: clean
-	rm -f $(NAME) my_libft/$(LIBFT)
+	rm -f $(NAME) ./my_libft/$(LIBFT)
 
 
 make re: fclean all
