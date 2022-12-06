@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:55:14 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/06 13:53:25 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 20:32:39 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	get_zoom(t_fdf *fdf)
 	else
 		zoom = WIDTH / fdf->map->width / 2;
 	zoom *= 0.75;
+	if (zoom < 1)
+		zoom = 1;
 	return (zoom);
 }
 
