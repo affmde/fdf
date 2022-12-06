@@ -6,11 +6,10 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 10:13:58 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 13:36:30 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:38:06 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
 static t_pos	populate_position(int x, int y, int z)

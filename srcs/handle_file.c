@@ -6,12 +6,11 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:16:09 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 21:43:42 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:39:16 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include "../my_libft/libft.h"
 
 t_map	*handle_file(int argv, char **argc)
 {

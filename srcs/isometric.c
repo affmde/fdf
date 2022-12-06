@@ -6,11 +6,10 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:44:19 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/05 17:32:11 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:40:07 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
 int	isometric(t_pos *pos)

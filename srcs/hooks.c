@@ -6,11 +6,10 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:28:18 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/06 13:31:56 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:39:42 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
 void	handle_zoom(int keycode, t_fdf *fdf)

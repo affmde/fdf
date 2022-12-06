@@ -6,11 +6,10 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:43:16 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/06 13:27:17 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:40:24 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../my_libft/libft.h"
 #include "../includes/fdf.h"
 
 t_pos	transform(t_pos pos, t_fdf *fdf)
