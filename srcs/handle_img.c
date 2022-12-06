@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:49:37 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/06 10:52:09 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:43:41 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	handle_img(t_fdf *fdf)
 	t_img	*image;
 
 	image = (t_img *)malloc(sizeof(t_img));
-	fdf->image = image;
 	if (!image)
 		return (0);
+	fdf->image = image;
 	fdf->image->img_ptr = mlx_new_image(fdf->ptr, WIDTH, HEIGHT);
 	fdf->image->data = (int *)mlx_get_data_addr(fdf->image->img_ptr,
 			&fdf->image->bpp, &fdf->image->size_l, &fdf->image->endian);

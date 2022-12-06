@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 21:07:55 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/06 12:39:59 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:56:04 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 
 void	clean_all(t_fdf *fdf, t_map *map)
 {
-	free(fdf->cam);
-	free_map(map->grid, map->height);
-	free(map);
-	free(fdf->ptr);
-	free(fdf);
+	if (fdf->cam)
+		free(fdf->cam);
+	if (fdf->map)
+		free_map(map->grid, map->height);
+	if (map)
+		free(map);
+	if (fdf->ptr)
+		free(fdf->ptr);
+	if (fdf)
+		free(fdf);
 }

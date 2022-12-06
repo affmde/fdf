@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:08:40 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/06 12:44:36 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:52:46 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ int	main(int argv, char **argc)
 	map = handle_file(argv, argc);
 	if (!map)
 	{
-		free(fdf);
+		clean_all(fdf, map);
 		error_malloc("Something happened while handling the file.");
 	}
 	fdf->map = map;
 	if (!setup(fdf))
+	{
+		clean_all(fdf, map);
 		error_malloc("Something happened on steup.");
+	}
 	if (!handle_window(fdf))
 		error_malloc("Could not manage the window.");
 	clean_all(fdf, map);
