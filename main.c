@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:08:40 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/06 13:52:46 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:21:49 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argv, char **argc)
 	t_fdf	*fdf;
 	t_map	*map;
 
-	fdf = (t_fdf *)malloc(sizeof(t_fdf));
+	fdf = (t_fdf *)ft_calloc(1, sizeof(t_fdf));
 	if (!fdf)
 		error_malloc("Something happened while allocating memory.");
 	map = handle_file(argv, argc);
