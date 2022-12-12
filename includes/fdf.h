@@ -6,7 +6,7 @@
 /*   By: andrferr <andrferr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 11:16:59 by andrferr          #+#    #+#             */
-/*   Updated: 2022/12/07 11:02:06 by andrferr         ###   ########.fr       */
+/*   Updated: 2022/12/12 11:14:04 by andrferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define ZOOM 40
 # define HEIGHT 1000
 # define WIDTH 1000
-# include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <mlx.h>
