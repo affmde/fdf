@@ -17,7 +17,7 @@ all: $(NAME)
 
 $(NAME): $(SRCSDEST)
 	cd ./my_libft && make
-	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. ./my_libft/libft.a -ggdb
+	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. ./my_libft/libft.a
 
 clean:
 	rm -f *.o $(LIBOBJ)
