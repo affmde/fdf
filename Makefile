@@ -13,12 +13,15 @@ ft_strnstr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c ft_strrchr.c ft_
 ft_power_of.c get_next_line.c ft_isspace.c ft_abs.c
 LIBSRCS = $(addprefix ./my_libft/, $(LIBFTSRCS))
 LIBOBJ = $(LIBSRCS:.c=.o)
+LINFLAGS = -lmlx -lXext -lX11
+MOSFLAGS = -lmlx -framework OpenGl -framework AppKit
+
 all: $(NAME)
 
 $(NAME): $(SRCSDEST)
 	cd ./my_libft && make
-	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib -lmlx -framework OpenGl -framework AppKit -L. ./my_libft/libft.a
-
+#cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib $(MOSFLAGS) -L. ./my_libft/libft.a
+	cc $(FLAGS) $(SRCSDEST) main.c -o $(NAME) -L /usr/local/lib $(LINFLAGS) -L. ./my_libft/libft.a
 clean:
 	rm -f *.o $(LIBOBJ)
 
